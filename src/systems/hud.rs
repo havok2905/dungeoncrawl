@@ -9,12 +9,6 @@ use crate::prelude::*;
 pub fn hud(ecs: &SubWorld) {
     let mut health_query = <&Health>::query().filter(component::<Player>());
     let mut item_query = <(&Item, &Name, &Carried)>::query();
-    let mut player_query = <(Entity, &Player)>::query();
-
-    let player = player_query
-        .iter(ecs)
-        .find_map(|(entity, _player)| Some(*entity))
-        .unwrap();
 
     let player_health = health_query.iter(ecs).nth(0).unwrap();
 
