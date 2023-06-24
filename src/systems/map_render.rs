@@ -40,6 +40,10 @@ pub fn map_render(
                         let glyph = theme.tile_to_render(map.tiles[idx]);
                         draw_batch.set(pt - offset, ColorPair::new(tint, BLACK), glyph)
                     }
+                    TileType::Exit => {
+                        let glyph = theme.tile_to_render(map.tiles[idx]);
+                        draw_batch.set(pt - offset, ColorPair::new(tint, BLACK), glyph)
+                    }
                 };
             }
         }
